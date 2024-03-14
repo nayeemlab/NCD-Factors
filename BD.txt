@@ -1,0 +1,973 @@
+clear
+*directory
+cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+******************************************************************************** 
+*DATA Read
+********************************************************************************
+use "bgd2018", clear
+
+********************************************************************************
+*WEIGHT, STRATA, CLUSTER VARIABLE
+********************************************************************************
+gen wgt=wstep3
+svyset [pw=wgt],psu(psu) strata(stratum)
+
+********************************************************************************
+*High Blood Pressure (Hypertension)
+********************************************************************************
+
+*keep if h1==1
+keep if age>=18
+gen sys = (m4a + m5a + m6a)/3
+gen dia = (m4b + m5b + m6b)/3
+gen hbp1 = 0
+replace hbp1 = 1 if sys>=140 | dia>=90
+label define hbp1  1 "Yes" 0 "No"
+label values hbp hbp1
+svy: tab hbp
+
+********************************************************************************
+*Relations
+********************************************************************************
+
+*Age.
+svy: tab age
+gen agecat1= age
+recode agecat1 18/29=0
+recode agecat1 30/44=1
+recode agecat1 45/59=2
+recode agecat1 60/69=3
+label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
+label values agecat agecat1
+tab agecat hbp, row
+svy: tab agecat hbp, row
+
+*sex.
+svy: tab sex
+gen rsex1= sex
+recode rsex1 0=0
+recode rsex1 1=1
+label define rsex1  0 "Women" 1 "Men"
+label values rsex rsex1
+tab rsex hbp, row
+svy: tab rsex hbp, row
+
+*Highest level of education.
+svy: tab c5
+gen edu1= c5
+recode edu1 1=0
+recode edu1 2=1
+recode edu1 3=1
+recode edu1 4=2
+recode edu1 5=2
+recode edu1 6=3
+recode edu1 7=3
+recode edu1 88=.
+label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
+label values edu edu1
+tab edu hbp, row
+svy: tab edu hbp, row
+
+
+*Religion.
+*svy: tab c6
+*gen religion1=c6
+*recode religion1 1=0
+*recode religion1 2/10=1
+*label define religion1  0 "Islam" 1 "Others"
+*label values religion religion1
+*tab religion hbp, row
+*svy: tab religion hbp, row
+
+
+*Marital Status.
+svy: tab c7
+gen marital1=c7
+recode marital1 1=0
+recode marital1 2=1
+recode marital1 3/10=0
+label define marital1  1 "Currently Married" 0 "Not Married"
+label values marital marital1
+tab marital hbp, row
+svy: tab marital hbp, row
+
+
+*Employment Status.
+svy: tab c8
+gen estatus1=c8
+recode estatus1 1/2=0
+recode estatus1 3/4=0
+recode estatus1 5/6=1
+
+recode estatus1 7/9=1
+recode estatus1 17=1
+recode estatus1 12=2
+recode estatus1 16=2
+
+recode estatus1 13/15=3
+recode estatus1 18/19=2
+recode estatus1 10=2
+recode estatus1 11=2
+recode estatus1 88=.
+
+label define estatus1  0 "Employee/Business" 1 "Agriculture/Labour"  2 "Home maker/Other work" 3 "Unemployed"
+label values estatus estatus1
+tab estatus hbp, row
+svy: tab estatus hbp, row
+
+
+*Currently Smoking Status.
+svy: tab t1
+gen smk1=t1
+recode smk1 1=1
+recode smk1 2=0
+label define smk1  1 "Yes" 0 "No"
+label values smk smk1
+tab smk hbp, row
+svy: tab smk hbp, row
+
+
+*Alchohol Status last 12.
+*svy: tab a2
+*gen alc1=a2
+*recode alc1 1=1
+*recode alc1 2=0
+*label define alc1  1 "Yes" 0 "No"
+*label values alc alc1
+*tab alc hbp, row
+*svy: tab alc hbp, row
+
+
+*Fruit Status in a week.
+summarize d1, detail
+svy: tab d1
+gen fruits1=d1
+
+recode fruits1 0=0
+recode fruits1 1/7=1
+recode fruits1 77=.
+label define fruits1  1 "Yes" 0 "No"
+label values fruits fruits1
+tab fruits hbp, row
+svy: tab fruits hbp, row
+
+
+*Veg Status in a week.
+summarize d3, detail
+svy: tab d3
+gen veg1=d3
+recode veg1 0=0
+recode veg1 1/7=1
+
+recode veg1 77=.
+label define veg1  1 "Yes" 0 "No"
+label values veg veg1
+tab veg hbp, row
+svy: tab veg hbp, row
+
+
+*adding Salt when eating.
+svy: tab d5a
+gen salt1=d5a
+recode salt1 1=0
+recode salt1 2=0
+recode salt1 3=1
+recode salt1 4=1
+recode salt1 5=2
+recode salt1 77=.
+label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
+label values salt salt1
+tab salt hbp, row
+svy: tab salt hbp, row
+
+
+*Oil used most often.
+svy: tab dx6
+gen oil1=dx6
+recode oil1 1=0
+recode oil1 3/5=1
+recode oil1 2=2
+recode oil1 8/9=2
+label define oil1  0 "Soybean" 1 "Sunflower/Mustard" 2 "Others"
+label values oil oil1
+tab oil hbp, row
+svy: tab oil hbp, row
+
+
+*Outside food Status in a week.
+svy: tab dx7
+gen ofood1=dx7
+recode ofood1 0=0
+recode ofood1 1/30=1
+recode ofood1 77=.
+label define ofood1  1 "Yes" 0 "No"  
+label values ofood ofood1
+tab ofood hbp, row
+svy: tab ofood hbp, row
+
+*Vigorous activity 
+svy: tab p1
+gen vigact1=p1
+recode vigact1 1=1
+recode vigact1 2=0
+label define vigact1  1 "Yes" 0 "No" 
+label values vigact vigact1
+tab vigact hbp, row
+svy: tab vigact hbp, row
+
+
+*moderate activity 
+svy: tab p4
+gen modact1=p4
+recode modact1 1=1
+recode modact1 2=0
+label define modact1  1 "Yes" 0 "No" 
+label values modact modact1
+tab modact hbp, row
+svy: tab modact hbp, row
+
+*Active transport
+svy: tab p7
+gen acttrans1=p7
+recode acttrans1 1=1
+recode acttrans1 2=0
+label define acttrans1  1 "Yes" 0 "No" 
+label values acttrans acttrans1
+tab acttrans hbp, row
+svy: tab acttrans hbp, row
+
+*Vigorous leisure 
+svy: tab p10
+gen vigleis1=p10
+recode vigleis1 1=1
+recode vigleis1 2=0
+label define vigleis1  1 "Yes" 0 "No" 
+label values vigleis vigleis1
+tab vigleis hbp, row
+svy: tab vigleis hbp, row
+
+*moderate leisure
+svy: tab p13
+gen modleis1=p13
+recode modleis1 1=1
+recode modleis1 2=0
+label define modleis1  1 "Yes" 0 "No" 
+label values modleis modleis1
+tab modleis hbp, row
+svy: tab modleis hbp, row
+
+
+*Obesity
+*Weight
+tab m12
+gen weight=m12
+recode weight 999=.
+recode weight 888=.
+
+*Height
+svy: tab m11
+recode m11 999=.
+recode m11 888=.
+gen height=m11/100
+
+gen obese1=weight/(height*height)
+recode obese1 0/29.99999999=0
+recode obese1 30/600=1
+label define obese1  1 "Yes" 0 "No" 
+label values obese obese1
+tab obese hbp, row
+svy: tab obese hbp, row
+
+
+*medicine on hypertension.
+svy: tab m7
+gen medhbp1= m7
+recode medhbp1 1=1
+recode medhbp1 2=0
+recode medhbp1 .=0
+label define medhbp1  1 "Yes" 0 "No"
+label values medhbp medhbp1
+tab medhbp hbp, row
+svy: tab medhbp hbp, row
+
+*medicine prescribed by doctor on hypertension.
+svy: tab hx1
+gen meddochbp1= hx1
+recode meddochbp1 1=1
+recode meddochbp1 2=0
+recode meddochbp1 .=0
+label define meddochbp1  1 "Yes" 0 "No"
+label values meddochbp meddochbp1
+tab meddochbp hbp, row
+svy: tab meddochbp hbp, row
+
+******************************************************************************** 
+*Bangladesh 2018
+********************************************************************************
+
+clear
+*directory
+cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+
+******************************************************************************** 
+*DATA Read
+********************************************************************************
+use "bgd2018", clear
+
+********************************************************************************
+*WEIGHT, STRATA, CLUSTER VARIABLE
+********************************************************************************
+gen wgt=wstep3
+svyset [pw=wgt],psu(psu) strata(stratum)
+********************************************************************************
+*told had high gluc (Diabetes)
+********************************************************************************
+
+*keep if h6==1
+keep if age>=18 
+
+gen hbs1 = 0
+replace hbs1 = 1 if b5 > 126
+label define hbs1  1 "Yes" 0 "No"
+label values hbs hbs1
+svy: tab hbs
+
+********************************************************************************
+*Relations
+********************************************************************************
+
+
+*Age.
+svy: tab age
+gen agecat1= age
+recode agecat1 18/29=0
+recode agecat1 30/44=1
+recode agecat1 45/59=2
+recode agecat1 60/69=3
+label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
+label values agecat agecat1
+tab agecat hbs, row
+svy: tab agecat hbs, row
+
+*sex.
+svy: tab sex
+gen rsex1= sex
+recode rsex1 0=0
+recode rsex1 1=1
+label define rsex1  0 "Women" 1 "Men"
+label values rsex rsex1
+tab rsex hbs, row
+svy: tab rsex hbs, row
+
+*Highest level of education.
+svy: tab c5
+gen edu1= c5
+recode edu1 1=0
+recode edu1 2=1
+recode edu1 3=1
+recode edu1 4=2
+recode edu1 5=2
+recode edu1 6=3
+recode edu1 7=3
+recode edu1 88=.
+label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
+label values edu edu1
+tab edu hbs, row
+svy: tab edu hbs, row
+
+*Religion.
+*svy: tab c6
+*gen religion1=c6
+*recode religion1 1=0
+*recode religion1 2/10=1
+*label define religion1  0 "Islam" 1 "Others"
+*label values religion religion1
+*tab religion hbs, row
+*svy: tab religion hbs, row
+
+*Marital Status.
+svy: tab c7
+gen marital1=c7
+recode marital1 1=0
+recode marital1 2=1
+recode marital1 3/10=0
+label define marital1  1 "Currently Married" 0 "Not Married"
+label values marital marital1
+tab marital hbs, row
+svy: tab marital hbs, row
+
+*Employment Status.
+svy: tab c8
+gen estatus1=c8
+recode estatus1 1/2=0
+recode estatus1 3/4=0
+recode estatus1 5/6=1
+
+recode estatus1 7/9=1
+recode estatus1 17=1
+recode estatus1 12=2
+recode estatus1 16=2
+
+recode estatus1 13/15=3
+recode estatus1 18/19=2
+recode estatus1 10=2
+recode estatus1 11=2
+recode estatus1 88=.
+
+label define estatus1  0 "Employee/Business" 1 "Agriculture/Labour"  2 "Home maker/Other work" 3 "Unemployed"
+label values estatus estatus1
+tab estatus hbs, row
+svy: tab estatus hbs, row
+
+*Currently Smoking Status.
+svy: tab t1
+gen smk1=t1
+recode smk1 1=1
+recode smk1 2=0
+label define smk1  1 "Yes" 0 "No"
+label values smk smk1
+tab smk hbs, row
+svy: tab smk hbs, row
+
+
+*Alchohol Status last 12.
+*svy: tab a2
+*gen alc1=a2
+*recode alc1 1=1
+*recode alc1 2=0
+*label define alc1  1 "Yes" 0 "No"
+*label values alc alc1
+*tab alc hbs, row
+*svy: tab alc hbs, row
+
+
+
+*Fruit Status in a week.
+svy: tab d1
+gen fruits1=d1
+recode fruits1 0=0
+recode fruits1 1/7=1
+
+recode fruits1 77=.
+label define fruits1  1 "Yes" 0 "No"
+label values fruits fruits1
+tab fruits hbs, row
+svy: tab fruits hbs, row
+
+
+*Veg Status in a week.
+svy: tab d3
+gen veg1=d3
+recode veg1 0=0
+recode veg1 1/7=1
+
+recode veg1 77=.
+label define veg1  1 "Yes" 0 "No"
+label values veg veg1
+tab veg hbs, row
+svy: tab veg hbs, row
+
+*Adding Salt when eating.
+svy: tab d5a
+gen salt1=d5a
+recode salt1 1=0
+recode salt1 2=0
+recode salt1 3=1
+recode salt1 4=1
+recode salt1 5=2
+recode salt1 77=.
+label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
+label values salt salt1
+tab salt hbs, row
+svy: tab salt hbs, row
+
+
+*Oil Status in a week.
+svy: tab dx6
+gen oil1=dx6
+recode oil1 1=0
+recode oil1 3/5=1
+recode oil1 2=2
+recode oil1 8/9=2
+label define oil1  0 "Soybean" 1 "Sunflower/Mustard" 2 "Others"
+label values oil oil1
+tab oil hbs, row
+svy: tab oil hbs, row
+
+
+*Outside food Status in a week.
+svy: tab dx7
+gen ofood1=dx7
+recode ofood1 0=0
+recode ofood1 1/30=1
+recode ofood1 77=.
+label define ofood1  1 "Yes" 0 "No"  
+label values ofood ofood1
+tab ofood hbs, row
+svy: tab ofood hbs, row
+
+*Vigorous activity 
+svy: tab p1
+gen vigact1=p1
+recode vigact1 1=1
+recode vigact1 2=0
+label define vigact1  1 "Yes" 0 "No" 
+label values vigact vigact1
+tab vigact hbs, row
+svy: tab vigact hbs, row
+
+*moderate activity 
+svy: tab p4
+gen modact1=p4
+recode modact1 1=1
+recode modact1 2=0
+label define modact1  1 "Yes" 0 "No" 
+label values modact modact1
+tab modact hbs, row
+svy: tab modact hbs, row
+
+*Active transport
+svy: tab p7
+gen acttrans1=p7
+recode acttrans1 1=1
+recode acttrans1 2=0
+label define acttrans1  1 "Yes" 0 "No" 
+label values acttrans acttrans1
+tab acttrans hbs, row
+svy: tab acttrans hbs, row
+
+*Vigorous leisure 
+svy: tab p10
+gen vigleis1=p10
+recode vigleis1 1=1
+recode vigleis1 2=0
+label define vigleis1  1 "Yes" 0 "No" 
+label values vigleis vigleis1
+tab vigleis hbs, row
+svy: tab vigleis hbs, row
+
+*moderate leisure
+svy: tab p13
+gen modleis1=p13
+recode modleis1 1=1
+recode modleis1 2=0
+label define modleis1  1 "Yes" 0 "No" 
+label values modleis modleis1
+tab modleis hbs, row
+svy: tab modleis hbs, row
+
+*Obesity
+*Weight
+tab m12
+gen weight=m12
+recode weight 999=.
+recode weight 888=.
+
+*Height
+svy: tab m11
+recode m11 999=.
+recode m11 888=.
+gen height=m11/100
+
+gen obese1=weight/(height*height)
+recode obese1 0/29.99999999=0
+recode obese1 30/600=1
+label define obese1  1 "Yes" 0 "No" 
+label values obese obese1
+tab obese hbs, row
+svy: tab obese hbs, row
+
+*medicine on hypertension.
+svy: tab h8
+gen medhbs1= h8
+recode medhbs1 1=1
+recode medhbs1 2=0
+recode medhbs1 .=0
+label define medhbs1  1 "Yes" 0 "No"
+label values medhbs medhbs1
+tab medhbs hbs, row
+svy: tab medhbs hbs, row
+
+*medicine prescribed by doctor on hypertension.
+svy: tab hx5
+gen meddochbs1= hx5
+recode meddochbs1 1=1
+recode meddochbs1 2=0
+recode meddochbs1 .=0
+label define meddochbs1  1 "Yes" 0 "No"
+label values meddochbs meddochbs1
+tab meddochbs hbs, row
+svy: tab meddochbs hbs, row
+
+********************************************************************************
+**Univariate Logistic regression
+********************************************************************************
+svy: logit hbs i.medhbp, or
+svy: logit hbs ib3.agecat, or
+svy: logit hbs i.rsex, or
+svy: logit hbs ib3.edu, or
+svy: logit hbs i.religion, or
+svy: logit hbs i.marital, or
+svy: logit hbs ib3.estatus, or
+svy: logit hbs ib1.smk, or
+*svy: logit hbs i.alc, or
+svy: logit hbs ib1.fruits, or
+svy: logit hbs ib1.veg, or
+svy: logit hbs ib2.salt, or
+svy: logit hbs ib2.oil, or
+svy: logit hbs i.ofood, or
+svy: logit hbs ib1.vigact, or
+svy: logit hbs ib1.modact, or
+svy: logit hbs ib1.acttrans, or
+svy: logit hbs i.vigleis, or
+svy: logit hbs ib1.modleis, or
+
+
+
+********************************************************************************
+**Multivariate Logistic regression
+********************************************************************************
+
+svy: logit hbs i.medhbp ib3.agecat i.rsex ib3.edu i.religion i.marital ib3.estatus ib1.smk ib1.fruits ib1.veg ib2.salt  ib2.oil i.ofood ib1.vigact ib1.modact ib1.acttrans i.vigleis ib1.modleis, or
+
+estat icc
+estat ic
+lroc
+predict p
+roctab score p
+
+******************************************************************************** 
+*Bangladesh 2018
+********************************************************************************
+
+clear
+*directory
+cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+
+******************************************************************************** 
+*DATA Read
+********************************************************************************
+
+use "bgd2018", clear
+
+********************************************************************************
+*WEIGHT, STRATA, CLUSTER VARIABLE FOR THE APPENDED DATA
+********************************************************************************
+gen wgt=wstep3
+svyset [pw=wgt],psu(psu) strata(stratum)
+
+
+********************************************************************************
+*High Blood Pressure (Hypertension)
+********************************************************************************
+
+*keep if h12==1
+keep if age>=18
+
+gen hcho1 = 0
+replace hcho1 = 1 if b8 > 190
+label define hcho1  1 "Yes" 0 "No"
+label values hcho hcho1
+svy: tab hcho
+
+********************************************************************************
+*Relations
+********************************************************************************
+
+
+*Age.
+svy: tab age
+gen agecat1= age
+recode agecat1 18/29=0
+recode agecat1 30/44=1
+recode agecat1 45/59=2
+recode agecat1 60/69=3
+label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
+label values agecat agecat1
+tab agecat hcho, row
+svy: tab agecat hcho, row
+
+*sex.
+svy: tab sex
+gen rsex1= sex
+recode rsex1 0=0
+recode rsex1 1=1
+label define rsex1  0 "Women" 1 "Men"
+label values rsex rsex1
+tab rsex hcho, row
+svy: tab rsex hcho, row
+
+*Highest level of education.
+svy: tab c5
+gen edu1= c5
+recode edu1 1=0
+recode edu1 2=1
+recode edu1 3=1
+recode edu1 4=2
+recode edu1 5=2
+recode edu1 6=3
+recode edu1 7=3
+recode edu1 88=.
+label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
+label values edu edu1
+tab edu hcho, row
+svy: tab edu hcho, row
+
+
+*Religion.
+*svy: tab c6
+*gen religion1=c6
+*recode religion1 1=0
+*recode religion1 2/10=1
+*label define religion1  0 "Islam" 1 "Others"
+*label values religion religion1
+*tab religion hcho, row
+*svy: tab religion hcho, row
+
+
+*Marital Status.
+svy: tab c7
+gen marital1=c7
+recode marital1 1=0
+recode marital1 2=1
+recode marital1 3/10=0
+label define marital1  1 "Currently Married" 0 "Not Married"
+label values marital marital1
+tab marital hcho, row
+svy: tab marital hcho, row
+
+
+*Employment Status.
+svy: tab c8
+gen estatus1=c8
+recode estatus1 1/2=0
+recode estatus1 3/4=0
+recode estatus1 5/6=1
+
+recode estatus1 7/9=1
+recode estatus1 17=1
+recode estatus1 12=2
+recode estatus1 16=2
+
+recode estatus1 13/15=3
+recode estatus1 18/19=2
+recode estatus1 10=2
+recode estatus1 11=2
+recode estatus1 88=.
+label define estatus1  0 "Employee/Business" 1 "Agriculture/Labour"  2 "Home maker/Other work" 3 "Unemployed"
+label values estatus estatus1
+tab estatus hcho, row
+svy: tab estatus hcho, row
+
+
+*Currently Smoking Status.
+svy: tab t1
+gen smk1=t1
+recode smk1 1=1
+recode smk1 2=0
+label define smk1  1 "Yes" 0 "No"
+label values smk smk1
+tab smk hcho, row
+svy: tab smk hcho, row
+
+*Alchohol Status last 12.
+*svy: tab a2
+*gen alc1=a2
+*recode alc1 1=1
+*recode alc1 2=0
+*label define alc1  1 "Yes" 0 "No"
+*label values alc alc1
+*tab alc hcho, row
+*svy: tab alc hcho, row
+
+*Fruit Status in a week.
+svy: tab d1
+gen fruits1=d1
+recode fruits1 0=0
+recode fruits1 1/7=1
+recode fruits1 77=.
+label define fruits1  1 "Yes" 0 "No"
+label values fruits fruits1
+tab fruits hcho, row
+svy: tab fruits hcho, row
+
+*Veg Status in a week.
+svy: tab d3
+gen veg1=d3
+recode veg1 0=0
+recode veg1 1/7=1
+recode veg1 77=.
+label define veg1  1 "Yes" 0 "No"
+label values veg veg1
+tab veg hcho, row
+svy: tab veg hcho, row
+
+*Salt Status in a week.
+svy: tab d5a
+gen salt1=d5a
+recode salt1 1=0
+recode salt1 2=0
+recode salt1 3=1
+recode salt1 4=1
+recode salt1 5=2
+recode salt1 77=.
+label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
+label values salt salt1
+tab salt hcho, row
+svy: tab salt hcho, row
+
+*Oil Status in a week.
+svy: tab dx6
+gen oil1=dx6
+recode oil1 1=0
+recode oil1 3/5=1
+recode oil1 2=2
+recode oil1 8/9=2
+label define oil1  0 "Soybean" 1 "Sunflower/Mustard" 2 "Others"
+label values oil oil1
+tab oil hcho, row
+svy: tab oil hcho, row
+
+*Outside food Status in a week.
+svy: tab dx7
+gen ofood1=dx7
+recode ofood1 0=0
+recode ofood1 1/30=1
+recode ofood1 77=.
+label define ofood1  1 "Yes" 0 "No"  
+label values ofood ofood1
+tab ofood hcho, row
+svy: tab ofood hcho, row
+
+*Vigorous activity 
+svy: tab p1
+gen vigact1=p1
+recode vigact1 1=1
+recode vigact1 2=0
+label define vigact1  1 "Yes" 0 "No" 
+label values vigact vigact1
+tab vigact hcho, row
+svy: tab vigact hcho, row
+
+
+*moderate activity 
+svy: tab p4
+gen modact1=p4
+recode modact1 1=1
+recode modact1 2=0
+label define modact1  1 "Yes" 0 "No" 
+label values modact modact1
+tab modact hcho, row
+svy: tab modact hcho, row
+
+*Active transport
+svy: tab p7
+gen acttrans1=p7
+recode acttrans1 1=1
+recode acttrans1 2=0
+label define acttrans1  1 "Yes" 0 "No" 
+label values acttrans acttrans1
+tab acttrans hcho, row
+svy: tab acttrans hcho, row
+
+*Vigorous leisure 
+svy: tab p10
+gen vigleis1=p10
+recode vigleis1 1=1
+recode vigleis1 2=0
+label define vigleis1  1 "Yes" 0 "No" 
+label values vigleis vigleis1
+tab vigleis hcho, row
+svy: tab vigleis hcho, row
+
+*moderate leisure
+svy: tab p13
+gen modleis1=p13
+recode modleis1 1=1
+recode modleis1 2=0
+label define modleis1  1 "Yes" 0 "No" 
+label values modleis modleis1
+tab modleis hcho, row
+svy: tab modleis hcho, row
+
+*Obesity
+*Weight
+tab m12
+gen weight=m12
+recode weight 999=.
+recode weight 888=.
+
+*Height
+svy: tab m11
+recode m11 999=.
+recode m11 888=.
+gen height=m11/100
+
+gen obese1=weight/(height*height)
+recode obese1 0/29.99999999=0
+recode obese1 30/600=1
+label define obese1  1 "Yes" 0 "No" 
+label values obese obese1
+tab obese hcho, row
+svy: tab obese hcho, row
+
+*medicine on hypertension.
+svy: tab h14
+gen medhbs1= h14
+recode medhbs1 1=1
+recode medhbs1 2=0
+recode medhbs1 .=0
+label define medhbs1  1 "Yes" 0 "No"
+label values medhbs medhbs1
+tab medhbs hcho, row
+svy: tab medhbs hcho, row
+
+*medicine prescribed by doctor on high glucose.
+svy: tab hx9
+gen meddochcho1= hx9
+recode meddochcho1 1=1
+recode meddochcho1 2=0
+recode meddochcho1 .=0
+label define meddochcho1  1 "Yes" 0 "No"
+label values meddochcho meddochcho1
+tab meddochcho hcho, row
+svy: tab meddochcho hcho, row
+
+********************************************************************************
+**Univariate Logistic regression
+********************************************************************************
+svy: logit hcho i.medhbp, or
+svy: logit hcho ib3.agecat, or
+svy: logit hcho i.rsex, or
+svy: logit hcho ib3.edu, or
+svy: logit hcho i.religion, or
+svy: logit hcho i.marital, or
+svy: logit hcho ib3.estatus, or
+svy: logit hcho ib1.smk, or
+*svy: logit hcho i.alc, or
+svy: logit hcho ib1.fruits, or
+svy: logit hcho ib1.veg, or
+svy: logit hcho ib2.salt, or
+svy: logit hcho ib2.oil, or
+svy: logit hcho i.ofood, or
+svy: logit hcho ib1.vigact, or
+svy: logit hcho ib1.modact, or
+svy: logit hcho ib1.acttrans, or
+svy: logit hcho i.vigleis, or
+svy: logit hcho ib1.modleis, or
+
+********************************************************************************
+**Multivariate Logistic regression
+********************************************************************************
+
+svy: logit hcho i.medhbp ib3.agecat i.rsex ib3.edu i.religion i.marital ib3.estatus ib1.smk ib1.fruits ib1.veg ib2.salt  ib2.oil i.ofood ib1.vigact ib1.modact ib1.acttrans i.vigleis ib1.modleis, or
+
+estat icc
+estat ic
+lroc
+predict p
+roctab score p
+
+
+
+
