@@ -1,12 +1,10 @@
-
-
 ******************************************************************************** 
 *High Blood Pressure
 ********************************************************************************
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2011 Mald"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2011 Mald"
 
 ******************************************************************************** 
 *DATA Read
@@ -25,11 +23,17 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 *keep if h1==1
 keep if age>=18
+drop if m11a == 999
+drop if m13a == 999
 gen sys = (m11a + m12a + m13a)/3
+drop if sys==.
+drop if sys==999
+drop if sys==9999
+drop if sys>=6710
 svy: mean sys
+drop if m13b == 999
 gen dia = (m11b + m12b + m13b)/3
 svy: mean dia
-drop if sys==.
 drop if dia==.
 gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
@@ -314,7 +318,7 @@ svy: tab obese hbp, row
 *tab medhbp hbp, row
 *svy: tab medhbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mald_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mald_hbp.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -322,7 +326,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mald_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2011 Mald"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2011 Mald"
 
 ********************************************************************************
 *Told had a high blood sugar (Hyperglucose)
@@ -629,7 +633,7 @@ svy: tab obese hbs, row
 *svy: tab meddochbp hbs, row
 
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mald_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mald_hbs.dta"
 
 ******************************************************************************** 
 *SriLanka
@@ -642,7 +646,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mald_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014  SRI"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014  SRI"
 
 ******************************************************************************** 
 *DATA Read
@@ -929,7 +933,7 @@ label values medhbp medhbp1
 tab medhbp hbp, row
 svy: tab medhbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hbp.dta"
 
 ********************************************************************************
 *told had high gluc (Diabetes)
@@ -937,7 +941,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014  SRI"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014  SRI"
 
 ******************************************************************************** 
 *DATA Read
@@ -1210,7 +1214,7 @@ label values medhbs medhbs1
 tab medhbs hbs, row
 svy: tab medhbs hbs, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hbs.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -1219,7 +1223,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014  SRI"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014  SRI"
 
 ******************************************************************************** 
 *DATA Read
@@ -1244,6 +1248,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 *keep if h12==1
 keep if age>=18
 drop if b8 ==.
+drop if b8 ==777
 svy: mean b8
 gen hcho1 = 0
 replace hcho1 = 1 if b8 >= 190
@@ -1494,7 +1499,7 @@ tab medhbs hcho, row
 svy: tab medhbs hcho, row
 
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hcho.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hcho.dta"
 
 
 ******************************************************************************** 
@@ -1507,7 +1512,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\SRI_hcho.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Mayn"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Mayn"
 
 ******************************************************************************** 
 *DATA Read
@@ -1778,7 +1783,7 @@ label values medhbp medhbp1
 tab medhbp hbp, row
 svy: tab medhbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Myan_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Myan_hbp.dta"
 
 
 ********************************************************************************
@@ -1787,7 +1792,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Myan_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Mayn"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Mayn"
 
 ******************************************************************************** 
 *DATA Read
@@ -2057,7 +2062,7 @@ label values medhbs medhbs1
 tab medhbs hbs, row
 svy: tab medhbs hbs, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mayn_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mayn_hbs.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -2065,7 +2070,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mayn_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Mayn"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Mayn"
 
 ******************************************************************************** 
 *DATA Read
@@ -2338,7 +2343,7 @@ label values medhbs medhbs1
 tab medhbs hcho, row
 svy: tab medhbs hcho, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mayn_hcho.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mayn_hcho.dta"
 
 
 ******************************************************************************** 
@@ -2351,7 +2356,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Mayn_hcho.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Timor"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Timor"
 
 ******************************************************************************** 
 *DATA Read
@@ -2369,6 +2374,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 *keep if h1==1
 keep if age>=18
+drop if m4a==888
 gen sys = (m4a + m5a + m6a)/3
 svy: mean sys
 gen dia = (m4b + m5b + m6b)/3
@@ -2622,7 +2628,7 @@ label values medhbp medhbp1
 tab medhbp hbp, row
 svy: tab medhbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hbp.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -2631,7 +2637,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Timor"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Timor"
 
 ******************************************************************************** 
 *DATA Read
@@ -2904,7 +2910,7 @@ label values medhbs medhbs1
 tab medhbs hbs, row
 svy: tab medhbs hbs, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hbs.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -2912,7 +2918,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2014 Timor"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2014 Timor"
 
 ******************************************************************************** 
 *DATA Read
@@ -3190,7 +3196,7 @@ label values medhbs medhbs1
 tab medhbs hcho, row
 svy: tab medhbs hcho, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hcho.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hcho.dta"
 
 ******************************************************************************** 
 *BANGLADESH
@@ -3202,7 +3208,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Timor_hcho.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2018 BD"
 ******************************************************************************** 
 *DATA Read
 ********************************************************************************
@@ -3496,7 +3502,7 @@ svy: tab medhbp hbp, row
 *tab meddochbp hbp, row
 *svy: tab meddochbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\BD_hbp.dta"
 
 
 ******************************************************************************** 
@@ -3505,7 +3511,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2018 BD"
 
 ******************************************************************************** 
 *DATA Read
@@ -3790,7 +3796,7 @@ svy: tab medhbs hbs, row
 *tab meddochbs hbs, row
 *svy: tab meddochbs hbs, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\BD_hbs.dta"
 
 ******************************************************************************** 
 *High Cholesterol
@@ -3798,7 +3804,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2018 BD"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2018 BD"
 
 ******************************************************************************** 
 *DATA Read
@@ -4081,7 +4087,7 @@ svy: tab medhbs hcho, row
 *tab meddochcho hcho, row
 *svy: tab meddochcho hcho, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hcho.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\BD_hcho.dta"
 
 
 ********************************************************************************
@@ -4094,7 +4100,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\BD_hcho.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2019 Nepal"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2019 Nepal"
 
 ******************************************************************************** 
 *DATA Read
@@ -4366,7 +4372,7 @@ label values medhbp medhbp1
 tab medhbp hbp, row
 svy: tab medhbp hbp, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Nepal_hbp.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hbp.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -4374,7 +4380,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Nepal_hbp.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2019 Nepal"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2019 Nepal"
 
 ******************************************************************************** 
 *DATA Read
@@ -4643,7 +4649,7 @@ label values medhbs medhbs1
 tab medhbs hbs, row
 svy: tab medhbs hbs, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Nepal_hbs.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hbs.dta"
 
 ******************************************************************************** 
 *DATA Read
@@ -4651,7 +4657,7 @@ save "E:\ResearchProject\Jamal Sir\NCD\STEP\Nepal_hbs.dta"
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP\STEP 2019 Nepal"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\STEP 2019 Nepal"
 
 ******************************************************************************** 
 *DATA Read
@@ -4919,13 +4925,13 @@ label values medhbs medhbs1
 tab medhbs hcho, row
 svy: tab medhbs hcho, row
 
-save "E:\ResearchProject\Jamal Sir\NCD\STEP\Nepal_hcho.dta"
+save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hcho.dta"
 
 
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP"
 
 append using Mald_hbp SRI_hbp Myan_hbp Timor_hbp BD_hbp Nepal_hbp
 
@@ -4999,7 +5005,7 @@ svy: tab medhbp hbp, row
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP"
 
 append using Mald_hbs SRI_hbs Mayn_hbs Timor_hbs BD_hbs Nepal_hbs
 
@@ -5078,7 +5084,7 @@ svy: tab medhbs hbs, row
 
 clear
 *directory
-cd "E:\ResearchProject\Jamal Sir\NCD\STEP"
+cd "E:\ResearchProject\Jamal Sir\NCD Factors\STEP"
 
 append using SRI_hcho Mayn_hcho Timor_hcho BD_hcho Nepal_hcho
 
