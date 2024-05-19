@@ -39,12 +39,12 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
 *Relations
 ********************************************************************************
-
 
 *Age.
 svy: tab age
@@ -55,6 +55,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -65,6 +67,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -82,6 +86,8 @@ recode edu1 88=.
 recode edu1 99=.
 label define edu1  0 "No formal schooling/Basic Literacy" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -119,6 +125,8 @@ recode marital1 88=.
 recode marital1 99=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
@@ -133,6 +141,8 @@ recode estatus1 7/9=2
 recode estatus1 88/99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -144,6 +154,8 @@ recode smk1 2=0
 recode smk1 7=.
 label define smk1  1 "Daily" 0 "Less than daily"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -167,6 +179,8 @@ recode fruits1 99=.
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits 
+svy: tab fruits 
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -180,6 +194,8 @@ recode veg1 99=.
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -210,6 +226,8 @@ recode oil1 77=.
 recode oil1 99=.
 label define oil1  1 "Vegetable" 0 "Sunflower/Mustard"  2 "Others/None"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -223,6 +241,8 @@ recode ofood1 77=.
 recode ofood1 99=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -235,6 +255,8 @@ recode vigact1 77=.
 recode vigact1 99=.
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -247,6 +269,8 @@ recode modact1 77=.
 recode modact1 99=.
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -259,6 +283,8 @@ recode acttrans1 77=.
 recode acttrans1 99=.
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -271,6 +297,8 @@ recode vigleis1 77=.
 recode vigleis1 99=.
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -283,6 +311,8 @@ recode modleis1 77=.
 recode modleis1 99=.
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -302,6 +332,8 @@ recode obese1 0/29.99=0
 recode obese1 30/100=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
@@ -353,6 +385,7 @@ recode hbs1 .=0
 recode hbs1 99=.
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -369,6 +402,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -379,6 +414,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -396,6 +433,8 @@ recode edu1 88=.
 recode edu1 99=.
 label define edu1  0 "No formal schooling/Basic Literacy" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -421,6 +460,8 @@ recode marital1 88=.
 recode marital1 99=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
@@ -437,6 +478,8 @@ recode estatus1 88/99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -448,6 +491,8 @@ recode smk1 2=0
 recode smk1 7=.
 label define smk1  1 "Daily" 0 "Less than daily"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
@@ -472,6 +517,8 @@ recode fruits1 99=.
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits 
+svy: tab fruits 
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -485,6 +532,8 @@ recode veg1 99=.
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -515,6 +564,8 @@ recode oil1 77=.
 recode oil1 99=.
 label define oil1  1 "Vegetable" 0 "Sunflower/Mustard" 2 "Others/None"
 label values oil oil1
+tab oil 
+svy: tab oil 
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -528,6 +579,8 @@ recode ofood1 77=.
 recode ofood1 99=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -540,6 +593,8 @@ recode vigact1 77=.
 recode vigact1 99=.
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -552,6 +607,8 @@ recode modact1 77=.
 recode modact1 99=.
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -564,6 +621,8 @@ recode acttrans1 77=.
 recode acttrans1 99=.
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -576,6 +635,8 @@ recode vigleis1 77=.
 recode vigleis1 99=.
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -588,6 +649,8 @@ recode modleis1 77=.
 recode modleis1 99=.
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -607,6 +670,8 @@ recode obese1 0/29.99=0
 recode obese1 30/100=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
@@ -669,6 +734,9 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 *keep if h1==1
 keep if age>=18
+drop if m4a==888
+drop if m5a==888
+drop if m6a==888
 gen sys = (m4a + m5a + m6a)/3
 svy: mean sys
 gen dia = (m4b + m5b + m6b)/3
@@ -679,6 +747,7 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
@@ -694,6 +763,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -704,6 +775,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -719,6 +792,8 @@ recode edu1 6=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -757,6 +832,8 @@ recode estatus1 99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -767,6 +844,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -790,6 +869,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -802,6 +883,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -831,6 +914,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Coconut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -843,6 +928,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -853,6 +940,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -863,6 +952,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -873,6 +964,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -883,6 +976,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -893,6 +988,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -917,21 +1014,25 @@ recode obese1 0/29.9999999=0
 recode obese1 30/200=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
 
 *medicine on hypertension.
-svy: tab h3
-gen medhbp1= h3
-recode medhbp1 1=1
-recode medhbp1 2=0
-recode medhbp1 .=0
-recode medhbp1 77=.
-label define medhbp1  1 "Yes" 0 "No"
-label values medhbp medhbp1
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*svy: tab h3
+*gen medhbp1= h3
+*recode medhbp1 1=1
+*recode medhbp1 2=0
+*recode medhbp1 .=0
+*recode medhbp1 77=.
+*label define medhbp1  1 "Yes" 0 "No"
+*label values medhbp medhbp1
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hbp.dta"
 
@@ -959,6 +1060,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 
 drop if b5==.
+drop if b5==777
 svy: mean b5
 *keep if h6==1
 keep if age>=18 
@@ -967,6 +1069,7 @@ gen hbs1 = 0
 replace hbs1 = 1 if b5 >= 126
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -982,6 +1085,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -992,6 +1097,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -1007,6 +1114,8 @@ recode edu1 6=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -1047,6 +1156,8 @@ recode estatus1 99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -1057,6 +1168,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
@@ -1079,6 +1192,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -1090,6 +1205,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -1104,6 +1221,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hbs, row
 svy: tab salt hbs, row
 
@@ -1119,6 +1238,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Coconut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -1127,9 +1248,11 @@ svy: tab d6
 gen ofood1=d6
 recode ofood1 0=0
 recode ofood1 1/30=1
-recode ofood1 77=.
+recode  ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -1140,6 +1263,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -1150,6 +1275,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -1160,6 +1287,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -1170,6 +1299,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -1180,6 +1311,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -1201,18 +1334,22 @@ recode obese1 0/29.99=0
 recode obese1 30/200=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
 *medicine on high blood sugar.
-svy: tab h8
-gen medhbs1= h8
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
+*svy: tab h8
+*gen medhbs1= h8
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hbs.dta"
 
@@ -1254,6 +1391,7 @@ gen hcho1 = 0
 replace hcho1 = 1 if b8 >= 190
 label define hcho1  1 "Yes" 0 "No"
 label values hcho hcho1
+tab hcho
 svy: tab hcho
 
 ********************************************************************************
@@ -1270,6 +1408,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
@@ -1280,6 +1420,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
@@ -1295,6 +1437,8 @@ recode edu1 6=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
@@ -1332,6 +1476,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
@@ -1342,6 +1488,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hcho, row
 svy: tab smk hcho, row
 
@@ -1363,6 +1511,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
@@ -1374,6 +1524,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
@@ -1388,6 +1540,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hcho, row
 svy: tab salt hcho, row
 
@@ -1403,6 +1557,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Coconut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab  oil
+svy: tab  oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
@@ -1414,6 +1570,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood 
+svy: tab ofood 
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
@@ -1424,6 +1582,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
@@ -1434,6 +1594,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
@@ -1444,6 +1606,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
@@ -1454,6 +1618,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
@@ -1464,6 +1630,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
@@ -1485,18 +1653,22 @@ recode obese1 0/29.99=0
 recode obese1 30/200=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
 *medicine on hypertension.
-svy: tab h14
-gen medhbs1= h14
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*svy: tab h14
+*gen medhbs1= h14
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\SRI_hcho.dta"
@@ -1529,6 +1701,9 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 *keep if h1==1
 keep if age>=18
+drop if m4a==888
+drop if m5a==888
+drop if m6a==888
 gen sys = (m4a + m5a + m6a)/3
 svy: mean sys
 gen dia = (m4b + m5b + m6b)/3
@@ -1539,6 +1714,7 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
@@ -1555,6 +1731,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -1565,6 +1743,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -1581,6 +1761,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -1604,6 +1786,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
@@ -1619,6 +1803,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -1629,6 +1815,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -1650,6 +1838,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -1661,6 +1851,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -1690,6 +1882,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Groundnut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -1701,6 +1895,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -1711,6 +1907,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -1721,6 +1919,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -1731,6 +1931,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -1741,6 +1943,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -1751,6 +1955,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -1770,18 +1976,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese 
+svy: tab obese 
 tab obese hbp, row
 svy: tab obese hbp, row
 
 *medicine on hypertension.
-svy: tab h3
-gen medhbp1= h3
-recode medhbp1 1=1
-recode medhbp1 2=0
-label define medhbp1  1 "Yes" 0 "No"
-label values medhbp medhbp1
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*svy: tab h3
+*gen medhbp1= h3
+*recode medhbp1 1=1
+*recode medhbp1 2=0
+*label define medhbp1  1 "Yes" 0 "No"
+*label values medhbp medhbp1
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Myan_hbp.dta"
 
@@ -1817,6 +2027,7 @@ gen hbs1 = 0
 replace hbs1 = 1 if b5 > 126
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -1833,6 +2044,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -1843,6 +2056,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -1859,6 +2074,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -1881,6 +2098,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
@@ -1896,6 +2115,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -1906,6 +2127,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
@@ -1927,6 +2150,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -1938,6 +2163,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg 
+svy: tab veg 
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -1967,6 +2194,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Groundnut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -1978,6 +2207,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -1988,6 +2219,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -1998,6 +2231,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -2008,6 +2243,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -2018,6 +2255,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -2028,6 +2267,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -2049,18 +2290,22 @@ recode obese1 0/29.9999999999999=0
 recode obese1 30/700=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
 *medicine on hign blood sugar.
-svy: tab h8
-gen medhbs1= h8
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
+*svy: tab h8
+*gen medhbs1= h8
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mayn_hbs.dta"
 
@@ -2094,11 +2339,14 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 *keep if h12==1
 keep if age>=18
 drop if  b8==.
+drop if  b8==777
+drop if  b8==888
 svy: mean b8
 gen hcho1 = 0
 replace hcho1 = 1 if b8 > 190
 label define hcho1  1 "Yes" 0 "No"
 label values hcho hcho1
+tab hcho
 svy: tab hcho
 
 ********************************************************************************
@@ -2114,6 +2362,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
@@ -2124,6 +2374,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
@@ -2140,6 +2392,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
@@ -2162,6 +2416,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hcho, row
 svy: tab marital hcho, row
 
@@ -2177,6 +2433,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
@@ -2187,6 +2445,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk 
+svy: tab smk 
 tab smk hcho, row
 svy: tab smk hcho, row
 
@@ -2208,6 +2468,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
@@ -2219,6 +2481,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
@@ -2248,6 +2512,8 @@ recode oil1 88=.
 recode oil1 99=.
 label define oil1  0 "Groundnut" 1 "Soybean/Vegetable/Palm"  2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
@@ -2259,6 +2525,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
@@ -2269,6 +2537,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
@@ -2279,6 +2549,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
@@ -2289,6 +2561,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
@@ -2299,6 +2573,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
@@ -2309,6 +2585,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
@@ -2330,18 +2608,22 @@ recode obese1 0/29.99999999999=0
 recode obese1 30/700=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
 *medicine on high cholesterol.
-svy: tab h14
-gen medhbs1= h14
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*svy: tab h14
+*gen medhbs1= h14
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Mayn_hcho.dta"
 
@@ -2385,6 +2667,7 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
@@ -2400,6 +2683,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -2410,6 +2695,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -2427,6 +2714,8 @@ recode edu1 8=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu 
+svy: tab edu 
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -2449,6 +2738,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
@@ -2465,6 +2756,8 @@ recode estatus1 99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus 
+svy: tab estatus 
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -2475,6 +2768,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk 
+svy: tab smk 
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -2496,6 +2791,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -2507,6 +2804,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -2521,6 +2820,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hbp, row
 svy: tab salt hbp, row
 
@@ -2533,6 +2834,8 @@ recode oil1 2/8=1
 recode oil1 77=.
 label define oil1  0 "Soybean/Vegetable /Palm" 1  "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -2544,6 +2847,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -2554,6 +2859,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -2564,6 +2871,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -2574,6 +2883,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -2584,6 +2895,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -2594,6 +2907,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -2615,18 +2930,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
 *medicine on hypertension.
-svy: tab h3
-gen medhbp1= h3
-recode medhbp1 1=1
-recode medhbp1 2=0
-label define medhbp1  1 "Yes" 0 "No"
-label values medhbp medhbp1
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*svy: tab h3
+*gen medhbp1= h3
+*recode medhbp1 1=1
+*recode medhbp1 2=0
+*label define medhbp1  1 "Yes" 0 "No"
+*label values medhbp medhbp1
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hbp.dta"
 
@@ -2661,6 +2980,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 *keep if h6==1
 keep if age>=18
 drop if  b5==.
+drop if  b5==77.7
 gen b5mm = b5*18.018
 drop b5
 gen b5 = b5mm
@@ -2669,6 +2989,7 @@ gen hbs1 = 0
 replace hbs1 = 1 if b5 >= 126
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -2684,6 +3005,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -2694,6 +3017,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -2711,6 +3036,8 @@ recode edu1 8=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu 
+svy: tab edu 
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -2733,6 +3060,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
@@ -2748,6 +3077,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -2758,6 +3089,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
@@ -2779,6 +3112,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -2790,6 +3125,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -2804,6 +3141,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt 
+svy: tab salt 
 tab salt hbs, row
 svy: tab salt hbs, row
 
@@ -2816,6 +3155,8 @@ recode oil1 2/8=1
 recode oil1 77=.
 label define oil1  0 "Soybean/Vegetable /Palm" 1  "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -2827,6 +3168,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -2837,6 +3180,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -2847,6 +3192,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -2857,6 +3204,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -2867,6 +3216,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -2877,6 +3228,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -2897,18 +3250,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
 *medicine on hypertension.
-svy: tab h8
-gen medhbs1= h8
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
+*svy: tab h8
+*gen medhbs1= h8
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab  medhbs
+*svy: tab  medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hbs.dta"
 
@@ -2942,7 +3299,6 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 *keep if h12==1
 keep if age>=18
 drop if b8==.
-drop if b8==.
 recode b8 77.77=.
 gen b8mm = b8*2*18.018
 drop b8
@@ -2952,6 +3308,7 @@ gen hcho1 = 0
 replace hcho1 = 1 if b8 >= 190
 label define hcho1  1 "Yes" 0 "No"
 label values hcho hcho1
+tab hcho
 svy: tab hcho
 
 ********************************************************************************
@@ -2967,6 +3324,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
@@ -2977,6 +3336,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
@@ -2994,6 +3355,8 @@ recode edu1 8=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
@@ -3016,6 +3379,8 @@ recode marital1 3/10=0
 recode marital1 88=.
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hcho, row
 svy: tab marital hcho, row
 
@@ -3031,6 +3396,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
@@ -3041,6 +3408,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hcho, row
 svy: tab smk hcho, row
 
@@ -3062,6 +3431,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
@@ -3073,6 +3444,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
@@ -3088,6 +3461,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hcho, row
 svy: tab salt hcho, row
 
@@ -3100,6 +3475,8 @@ recode oil1 2/8=1
 recode oil1 77=.
 label define oil1  0 "Soybean/Vegetable /Palm" 1  "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
@@ -3111,6 +3488,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
@@ -3121,6 +3500,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
@@ -3131,6 +3512,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
@@ -3141,6 +3524,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans 
+svy: tab acttrans 
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
@@ -3151,6 +3536,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
@@ -3161,6 +3548,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis 
+svy: tab modleis 
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
@@ -3182,19 +3571,23 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
 
 *medicine on hypertension.
-svy: tab h14
-gen medhbs1= h14
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*svy: tab h14
+*gen medhbs1= h14
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Timor_hcho.dta"
 
@@ -3227,6 +3620,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 ********************************************************************************
 *keep if h1==1
 keep if age>=18
+drop if m4a==888
 gen sys = (m4a + m5a + m6a)/3
 svy: mean sys
 gen dia = (m4b + m5b + m6b)/3
@@ -3235,6 +3629,7 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
@@ -3250,6 +3645,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -3260,6 +3657,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -3276,6 +3675,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu 
+svy: tab edu 
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -3299,6 +3700,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
@@ -3313,6 +3716,8 @@ recode estatus1 88=.
 
 label define estatus1  0 "Employee/Business/Agriculture/Labour" 1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -3324,6 +3729,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -3349,6 +3756,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -3363,6 +3772,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -3378,6 +3789,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hbp, row
 svy: tab salt hbp, row
 
@@ -3391,6 +3804,8 @@ recode oil1 2=2
 recode oil1 8/9=2
 label define oil1  1 "Soybean" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -3403,6 +3818,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -3413,6 +3830,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -3424,6 +3843,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -3434,6 +3855,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -3444,6 +3867,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -3454,6 +3879,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -3476,20 +3903,24 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
 
 *medicine on hypertension.
-svy: tab h3
-gen medhbp1= h3
-recode medhbp1 1=1
-recode medhbp1 2=0
-recode medhbp1 .=0
-label define medhbp1  1 "Yes" 0 "No"
-label values medhbp medhbp1
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*svy: tab h3
+*gen medhbp1= h3
+*recode medhbp1 1=1
+*recode medhbp1 2=0
+*recode medhbp1 .=0
+*label define medhbp1  1 "Yes" 0 "No"
+*label values medhbp medhbp1
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 *medicine prescribed by doctor on hypertension.
 *svy: tab hx1
@@ -3537,6 +3968,7 @@ gen hbs1 = 0
 replace hbs1 = 1 if b5 > 126
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -3553,6 +3985,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -3563,6 +3997,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -3579,6 +4015,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -3600,6 +4038,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
@@ -3613,6 +4053,8 @@ recode estatus1 88=.
 
 label define estatus1  0 "Employee/Business/Agriculture/Labour" 1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -3623,9 +4065,10 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
-
 
 *Alchohol Status last 12.
 *svy: tab a2
@@ -3637,17 +4080,16 @@ svy: tab smk hbs, row
 *tab alc hbs, row
 *svy: tab alc hbs, row
 
-
-
 *Fruit Status in a week.
 svy: tab d1
 gen fruits1=d1
 recode fruits1 0=0
 recode fruits1 1/7=1
-
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -3661,6 +4103,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg 
+svy: tab veg 
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -3675,6 +4119,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hbs, row
 svy: tab salt hbs, row
 
@@ -3688,6 +4134,8 @@ recode oil1 2=2
 recode oil1 8/9=2
 label define oil1  1 "Soybean" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -3700,6 +4148,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -3710,6 +4160,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -3720,6 +4172,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -3730,6 +4184,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -3740,6 +4196,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -3750,6 +4208,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -3771,19 +4231,23 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
 *medicine on hypertension.
-svy: tab h8
-gen medhbs1= h8
-recode medhbs1 1=1
-recode medhbs1 2=0
-recode medhbs1 .=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
+*svy: tab h8
+*gen medhbs1= h8
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*recode medhbs1 .=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 *medicine prescribed by doctor on hypertension.
 *svy: tab hx5
@@ -3831,6 +4295,7 @@ gen hcho1 = 0
 replace hcho1 = 1 if b8 > 190
 label define hcho1  1 "Yes" 0 "No"
 label values hcho hcho1
+tab hcho
 svy: tab hcho
 
 ********************************************************************************
@@ -3847,6 +4312,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
@@ -3857,6 +4324,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
@@ -3873,6 +4342,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
@@ -3896,6 +4367,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hcho, row
 svy: tab marital hcho, row
 
@@ -3910,6 +4383,8 @@ recode estatus1 88=.
 
 label define estatus1  0 "Employee/Business/Agriculture/Labour" 1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
@@ -3921,6 +4396,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hcho, row
 svy: tab smk hcho, row
 
@@ -3942,6 +4419,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
@@ -3953,6 +4432,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
@@ -3967,6 +4448,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hcho, row
 svy: tab salt hcho, row
 
@@ -3979,6 +4462,8 @@ recode oil1 2=2
 recode oil1 8/9=2
 label define oil1  1 "Soybean" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
@@ -3990,6 +4475,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
@@ -4000,6 +4487,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
@@ -4011,6 +4500,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
@@ -4021,6 +4512,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
@@ -4031,6 +4524,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis 
+svy: tab vigleis 
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
@@ -4041,6 +4536,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
@@ -4062,19 +4559,23 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
 *medicine on hypertension.
-svy: tab h14
-gen medhbs1= h14
-recode medhbs1 1=1
-recode medhbs1 2=0
-recode medhbs1 .=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*svy: tab h14
+*gen medhbs1= h14
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*recode medhbs1 .=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 *medicine prescribed by doctor on high glucose.
 *svy: tab hx9
@@ -4088,7 +4589,6 @@ svy: tab medhbs hcho, row
 *svy: tab meddochcho hcho, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\BD_hcho.dta"
-
 
 ********************************************************************************
 **Nepal
@@ -4133,6 +4633,7 @@ gen hbp1 = 0
 replace hbp1 = 1 if sys>=140 | dia>=90
 label define hbp1  1 "Yes" 0 "No"
 label values hbp hbp1
+tab hbp
 svy: tab hbp
 
 ********************************************************************************
@@ -4148,6 +4649,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
@@ -4158,6 +4661,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
@@ -4174,6 +4679,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbp, row
 svy: tab edu hbp, row
 
@@ -4195,6 +4702,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
@@ -4210,6 +4719,8 @@ recode estatus1 88=.
 recode estatus1 99=.
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
@@ -4220,6 +4731,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
@@ -4241,6 +4754,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
@@ -4252,6 +4767,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
@@ -4266,6 +4783,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt 
+svy: tab salt 
 tab salt hbp, row
 svy: tab salt hbp, row
 
@@ -4278,6 +4797,8 @@ recode oil1 3/9=2
 recode oil1 77=2
 label define oil1  1 "Soybean/Vegetable" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
@@ -4289,6 +4810,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
@@ -4299,6 +4822,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
@@ -4309,6 +4834,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
@@ -4319,6 +4846,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
@@ -4329,6 +4858,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
@@ -4339,6 +4870,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
@@ -4359,18 +4892,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
 *medicine on hypertension.
-svy: tab h3
-gen medhbp1= h3
-recode medhbp1 1=1
-recode medhbp1 2=0
-label define medhbp1  1 "Yes" 0 "No"
-label values medhbp medhbp1
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*svy: tab h3
+*gen medhbp1= h3
+*recode medhbp1 1=1
+*recode medhbp1 2=0
+*label define medhbp1  1 "Yes" 0 "No"
+*label values medhbp medhbp1
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hbp.dta"
 
@@ -4408,6 +4945,7 @@ gen hbs1 = 0
 replace hbs1 = 1 if b5 >= 126
 label define hbs1  1 "Yes" 0 "No"
 label values hbs hbs1
+tab hbs
 svy: tab hbs
 
 ********************************************************************************
@@ -4423,6 +4961,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
@@ -4433,6 +4973,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
@@ -4450,6 +4992,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hbs, row
 svy: tab edu hbs, row
 
@@ -4471,6 +5015,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
@@ -4487,6 +5033,8 @@ recode estatus1 99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
@@ -4497,6 +5045,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
@@ -4518,6 +5068,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
@@ -4529,6 +5081,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hbs, row
 svy: tab veg hbs, row
 
@@ -4543,6 +5097,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hbs, row
 svy: tab salt hbs, row
 
@@ -4555,6 +5111,8 @@ recode oil1 3/9=2
 recode oil1 77=2
 label define oil1  1 "Soybean/Vegetable" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
@@ -4566,6 +5124,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood 
+svy: tab ofood 
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
@@ -4576,6 +5136,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
@@ -4586,6 +5148,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
@@ -4596,6 +5160,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
@@ -4606,6 +5172,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
@@ -4616,6 +5184,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
@@ -4636,18 +5206,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
 *medicine on hypertension.
-svy: tab h8
-gen medhbs1= h8
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
+*svy: tab h8
+*gen medhbs1= h8
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hbs.dta"
 
@@ -4685,6 +5259,7 @@ gen hcho1 = 0
 replace hcho1 = 1 if b8 > 190
 label define hcho1  1 "Yes" 0 "No"
 label values hcho hcho1
+tab hcho
 svy: tab hcho
 
 ********************************************************************************
@@ -4700,6 +5275,8 @@ recode agecat1 45/59=2
 recode agecat1 60/69=3
 label define agecat1  0 "18-29" 1 "30-44" 2 "45-59" 3 "60-69"
 label values agecat agecat1
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
@@ -4710,6 +5287,8 @@ recode rsex1 0=0
 recode rsex1 1=1
 label define rsex1  0 "Women" 1 "Men"
 label values rsex rsex1
+tab rsex
+svy: tab rsex
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
@@ -4726,6 +5305,8 @@ recode edu1 7=3
 recode edu1 88=.
 label define edu1  0 "No formal schooling" 1 "Less than primary/Primary school completed" 2 "Secondary school completed/High school completed" 3 "College/University completed/Post graduate degree"
 label values edu edu1
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
@@ -4747,6 +5328,8 @@ recode marital1 2=1
 recode marital1 3/10=0
 label define marital1  1 "Currently Married" 0 "Not Married"
 label values marital marital1
+tab marital
+svy: tab marital
 tab marital hcho, row
 svy: tab marital hcho, row
 
@@ -4763,6 +5346,8 @@ recode estatus1 99=.
 
 label define estatus1  0 "Employee/Business"  1 "Home maker/Other work" 2 "Unemployed"
 label values estatus estatus1
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
@@ -4773,6 +5358,8 @@ recode smk1 1=1
 recode smk1 2=0
 label define smk1  1 "Yes" 0 "No"
 label values smk smk1
+tab smk
+svy: tab smk
 tab smk hcho, row
 svy: tab smk hcho, row
 
@@ -4794,6 +5381,8 @@ recode fruits1 1/7=1
 recode fruits1 77=.
 label define fruits1  1 "Yes" 0 "No"
 label values fruits fruits1
+tab fruits
+svy: tab fruits
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
@@ -4805,6 +5394,8 @@ recode veg1 1/7=1
 recode veg1 77=.
 label define veg1  1 "Yes" 0 "No"
 label values veg veg1
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
@@ -4819,6 +5410,8 @@ recode salt1 5=2
 recode salt1 77=.
 label define salt1  0 "Always/Often" 1 "Sometimes/Rarely" 2 "Never" 
 label values salt salt1
+tab salt
+svy: tab salt
 tab salt hcho, row
 svy: tab salt hcho, row
 
@@ -4831,6 +5424,8 @@ recode oil1 3/9=2
 recode oil1 77=2
 label define oil1  1 "Soybean/Vegetable" 0 "Sunflower/Mustard" 2 "Others"
 label values oil oil1
+tab oil
+svy: tab oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
@@ -4842,6 +5437,8 @@ recode ofood1 1/30=1
 recode ofood1 77=.
 label define ofood1  1 "Yes" 0 "No"  
 label values ofood ofood1
+tab ofood
+svy: tab ofood
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
@@ -4852,6 +5449,8 @@ recode vigact1 1=1
 recode vigact1 2=0
 label define vigact1  1 "Yes" 0 "No" 
 label values vigact vigact1
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
@@ -4862,6 +5461,8 @@ recode modact1 1=1
 recode modact1 2=0
 label define modact1  1 "Yes" 0 "No" 
 label values modact modact1
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
@@ -4872,6 +5473,8 @@ recode acttrans1 1=1
 recode acttrans1 2=0
 label define acttrans1  1 "Yes" 0 "No" 
 label values acttrans acttrans1
+tab acttrans
+svy: tab acttrans
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
@@ -4882,6 +5485,8 @@ recode vigleis1 1=1
 recode vigleis1 2=0
 label define vigleis1  1 "Yes" 0 "No" 
 label values vigleis vigleis1
+tab vigleis
+svy: tab vigleis
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
@@ -4892,6 +5497,8 @@ recode modleis1 1=1
 recode modleis1 2=0
 label define modleis1  1 "Yes" 0 "No" 
 label values modleis modleis1
+tab modleis
+svy: tab modleis
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
@@ -4912,18 +5519,22 @@ recode obese1 0/29.99999999=0
 recode obese1 30/600=1
 label define obese1  1 "Yes" 0 "No" 
 label values obese obese1
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
 *medicine on hypertension.
-svy: tab h14
-gen medhbs1= h14
-recode medhbs1 1=1
-recode medhbs1 2=0
-label define medhbs1  1 "Yes" 0 "No"
-label values medhbs medhbs1
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*svy: tab h14
+*gen medhbs1= h14
+*recode medhbs1 1=1
+*recode medhbs1 2=0
+*label define medhbs1  1 "Yes" 0 "No"
+*label values medhbs medhbs1
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 save "E:\ResearchProject\Jamal Sir\NCD Factors\STEP\Nepal_hcho.dta"
 
@@ -4944,59 +5555,95 @@ svy: mean dia
 tab hbp
 svy: tab hbp
 
+tab agecat
+svy: tab agecat
 tab agecat hbp, row
 svy: tab agecat hbp, row
 
+tab rsex
+svy: tab rsex
 tab rsex hbp, row
 svy: tab rsex hbp, row
 
+tab edu
+svy: tab edu
 tab edu hbp, row
 svy: tab edu hbp, row
 
+tab marital
+svy: tab marital
 tab marital hbp, row
 svy: tab marital hbp, row
 
+tab estatus
+svy: tab estatus
 tab estatus hbp, row
 svy: tab estatus hbp, row
 
+tab smk
+svy: tab smk
 tab smk hbp, row
 svy: tab smk hbp, row
 
+tab fruits
+svy: tab fruits
 tab fruits hbp, row
 svy: tab fruits hbp, row
 
+tab veg
+svy: tab veg
 tab veg hbp, row
 svy: tab veg hbp, row
 
+tab salt
+svy: tab salt
 tab salt hbp, row
 svy: tab salt hbp, row
 
+tab oil
+svy: tab oil
 tab oil hbp, row
 svy: tab oil hbp, row
 
+tab ofood
+svy: tab ofood
 tab ofood hbp, row
 svy: tab ofood hbp, row
 
+tab vigact
+svy: tab vigact
 tab vigact hbp, row
 svy: tab vigact hbp, row
 
+tab modact
+svy: tab modact
 tab modact hbp, row
 svy: tab modact hbp, row
 
+tab acttrans
+svy: tab acttrans
 tab acttrans hbp, row
 svy: tab acttrans hbp, row
 
+tab vigleis
+svy: tab vigleis
 tab vigleis hbp, row
 svy: tab vigleis hbp, row
 
+tab modleis
+svy: tab modleis
 tab modleis hbp, row
 svy: tab modleis hbp, row
 
+tab  obese
+svy: tab  obese
 tab obese hbp, row
 svy: tab obese hbp, row
 
-tab medhbp hbp, row
-svy: tab medhbp hbp, row
+*tab medhbp
+*svy: tab medhbp
+*tab medhbp hbp, row
+*svy: tab medhbp hbp, row
 
 
 
@@ -5017,69 +5664,95 @@ svy: mean b5
 tab hbs
 svy: tab hbs
 
+tab agecat
+svy: tab agecat
 tab agecat hbs, row
 svy: tab agecat hbs, row
 
+tab rsex
+svy: tab rsex
 tab rsex hbs, row
 svy: tab rsex hbs, row
 
+tab edu 
+svy: tab edu 
 tab edu hbs, row
 svy: tab edu hbs, row
 
+tab marital
+svy: tab marital
 tab marital hbs, row
 svy: tab marital hbs, row
 
+tab estatus
+svy: tab estatus
 tab estatus hbs, row
 svy: tab estatus hbs, row
 
+tab smk
+svy: tab smk
 tab smk hbs, row
 svy: tab smk hbs, row
 
+tab fruits
+svy: tab fruits
 tab fruits hbs, row
 svy: tab fruits hbs, row
 
+tab veg
+svy: tab veg
 tab veg hbs, row
 svy: tab veg hbs, row
 
+tab salt
+svy: tab salt
 tab salt hbs, row
 svy: tab salt hbs, row
 
+tab oil
+svy: tab oil
 tab oil hbs, row
 svy: tab oil hbs, row
 
+tab ofood
+svy: tab ofood
 tab ofood hbs, row
 svy: tab ofood hbs, row
 
+tab vigact
+svy: tab vigact
 tab vigact hbs, row
 svy: tab vigact hbs, row
 
+tab modact
+svy: tab  modact
 tab modact hbs, row
 svy: tab modact hbs, row
 
+tab acttrans 
+svy: tab acttrans 
 tab acttrans hbs, row
 svy: tab acttrans hbs, row
 
+tab vigleis
+svy: tab vigleis
 tab vigleis hbs, row
 svy: tab vigleis hbs, row
 
+tab modleis
+svy: tab modleis
 tab modleis hbs, row
 svy: tab modleis hbs, row
 
+tab obese
+svy: tab obese
 tab obese hbs, row
 svy: tab obese hbs, row
 
-tab medhbs hbs, row
-svy: tab medhbs hbs, row
-
-
-
-
-
-
-
-
-
-
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hbs, row
+*svy: tab medhbs hbs, row
 
 
 clear
@@ -5096,58 +5769,94 @@ svy: mean b8
 tab hcho
 svy: tab hcho
 
+tab agecat
+svy: tab agecat
 tab agecat hcho, row
 svy: tab agecat hcho, row
 
+tab rsex 
+svy: tab rsex 
 tab rsex hcho, row
 svy: tab rsex hcho, row
 
+tab edu
+svy: tab edu
 tab edu hcho, row
 svy: tab edu hcho, row
 
+tab marital
+svy: tab marital
 tab marital hcho, row
 svy: tab marital hcho, row
 
+tab estatus
+svy: tab estatus
 tab estatus hcho, row
 svy: tab estatus hcho, row
 
+tab smk
+svy: tab smk
 tab smk hcho, row
 svy: tab smk hcho, row
 
+tab fruits 
+svy: tab fruits 
 tab fruits hcho, row
 svy: tab fruits hcho, row
 
+tab veg
+svy: tab veg
 tab veg hcho, row
 svy: tab veg hcho, row
 
+tab salt
+svy: tab salt
 tab salt hcho, row
 svy: tab salt hcho, row
 
+tab oil
+svy: tab oil
 tab oil hcho, row
 svy: tab oil hcho, row
 
+tab ofood
+svy: tab ofood
 tab ofood hcho, row
 svy: tab ofood hcho, row
 
+tab vigact
+svy: tab vigact
 tab vigact hcho, row
 svy: tab vigact hcho, row
 
+tab modact
+svy: tab modact
 tab modact hcho, row
 svy: tab modact hcho, row
 
+tab acttrans
+svy: tab acttrans
 tab acttrans hcho, row
 svy: tab acttrans hcho, row
 
+tab vigleis 
+svy: tab vigleis 
 tab vigleis hcho, row
 svy: tab vigleis hcho, row
 
+tab modleis
+svy: tab modleis
 tab modleis hcho, row
 svy: tab modleis hcho, row
 
+tab obese
+svy: tab obese
 tab obese hcho, row
 svy: tab obese hcho, row
 
-tab medhbs hcho, row
-svy: tab medhbs hcho, row
+*tab medhbs
+*svy: tab medhbs
+*tab medhbs hcho, row
+*svy: tab medhbs hcho, row
 
 
