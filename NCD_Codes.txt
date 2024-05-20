@@ -2974,7 +2974,7 @@ svyset [pw=wgt],psu(psu) strata(stratum)
 
 
 ********************************************************************************
-*High Blood Pressure (Hypertension)
+*High Blood Suger
 ********************************************************************************
 
 *keep if h6==1
@@ -5646,9 +5646,18 @@ svy: tab obese hbp, row
 *svy: tab medhbp hbp, row
 
 
+********************************************************************************
+**Multivariate Logistic regression
+********************************************************************************
 
+svy: logit hbp ib3.agecat ib3.edu i.marital ib2.estatus ib2.oil ib1.ofood ib1.vigact ib1.acttrans i.obese,or
 
-
+logit hbp agecat edu marital estatus oil ofood vigact acttrans obese,or
+estat icc
+estat ic
+lroc
+predict c
+roctab hbp1 c
 
 clear
 *directory
@@ -5753,6 +5762,18 @@ svy: tab obese hbs, row
 *svy: tab medhbs
 *tab medhbs hbs, row
 *svy: tab medhbs hbs, row
+
+egen rsex2 = group(rsex)
+svy: logit hbs ib3.agecat ib1.rsex2 ib3.edu i.marital ib2.salt i.vigact i.modact i.acttrans i.vigleis i.obese,or
+
+
+logit hbs agecat rsex2 edu marital salt vigact modact acttrans vigleis obese,or
+
+estat icc
+estat ic
+lroc
+predict c
+roctab hbs1 c
 
 
 clear
@@ -5860,3 +5881,14 @@ svy: tab obese hcho, row
 *svy: tab medhbs hcho, row
 
 
+egen rsex2 = group(rsex)
+svy: logit hcho ib3.agecat ib1.rsex2 ib3.edu ib1.vigact ib1.vigleis i.obese,or
+
+
+logit hcho agecat rsex2 edu vigact vigleis obese,or
+
+estat icc
+estat ic
+lroc
+predict c
+roctab hcho c
