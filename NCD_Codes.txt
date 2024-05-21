@@ -5650,9 +5650,9 @@ svy: tab obese hbp, row
 **Multivariate Logistic regression
 ********************************************************************************
 
-svy: logit hbp ib3.agecat ib3.edu i.marital ib2.estatus ib2.oil ib1.ofood ib1.vigact ib1.acttrans i.obese,or
+svy: logit hbp ib3.agecat ib3.edu i.marital ib2.estatus ib2.oil ib1.vigact ib1.acttrans i.obese,or
 
-logit hbp agecat edu marital estatus oil ofood vigact acttrans obese,or
+logit hbp agecat edu marital estatus oil vigact acttrans obese,or
 estat icc
 estat ic
 lroc
@@ -5764,6 +5764,7 @@ svy: tab obese hbs, row
 *svy: tab medhbs hbs, row
 
 egen rsex2 = group(rsex)
+
 svy: logit hbs ib3.agecat ib1.rsex2 ib3.edu i.marital ib2.salt i.vigact i.modact i.acttrans i.vigleis i.obese,or
 
 
