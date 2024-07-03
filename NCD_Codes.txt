@@ -5650,9 +5650,9 @@ svy: tab obese hbp, row
 **Multivariate Logistic regression
 ********************************************************************************
 
-svy: logit hbp ib3.agecat ib3.edu i.marital ib2.estatus ib2.oil ib1.vigact ib1.acttrans i.obese,or
+svy: logit hbp i.agecat ib3.edu i.marital ib2.estatus ib2.oil ib1.ofood ib1.vigact ib1.acttrans i.obese,or
 
-logit hbp agecat edu marital estatus oil vigact acttrans obese,or
+logit hbp agecat edu marital estatus oil ofood vigact acttrans obese,or
 estat icc
 estat ic
 lroc
@@ -5765,10 +5765,10 @@ svy: tab obese hbs, row
 
 egen rsex2 = group(rsex)
 
-svy: logit hbs ib3.agecat ib1.rsex2 ib3.edu i.marital ib2.salt i.vigact i.modact i.acttrans i.vigleis i.obese,or
+svy: logit hbs i.agecat ib1.rsex2 ib3.edu i.marital ib2.salt ib1.oil i.vigact ib1.modact i.acttrans i.vigleis ib1.modleis i.obese,or
 
 
-logit hbs agecat rsex2 edu marital salt vigact modact acttrans vigleis obese,or
+logit hbs agecat rsex2 edu marital salt oil vigact modact acttrans vigleis modleis obese,or
 
 estat icc
 estat ic
@@ -5883,10 +5883,10 @@ svy: tab obese hcho, row
 
 
 egen rsex2 = group(rsex)
-svy: logit hcho ib3.agecat ib1.rsex2 ib3.edu ib1.vigact ib1.vigleis i.obese,or
+svy: logit hcho i.agecat ib1.rsex2 ib3.edu ib1.estatus i.smk ib1.vigact ib1.vigleis i.obese,or
 
 
-logit hcho agecat rsex2 edu vigact vigleis obese,or
+logit hcho agecat rsex2 edu estatus smk vigact vigleis obese,or
 
 estat icc
 estat ic
